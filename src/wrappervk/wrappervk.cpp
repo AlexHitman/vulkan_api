@@ -41,6 +41,18 @@ namespace {
 namespace wrappervk {
 	void Init()
 	{
+		uint32_t extensionCount = 0;
+		vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
+
+		std::vector<VkExtensionProperties> extensions(extensionCount);
+
+		vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, extensions.data());
+
+		std::cerr << "Available vulkan extensions:" << std::endl;
+
+		for (const auto & extension: extensions)
+			std::cerr << "\t" << extension.extensionName << std::endl;
+
 		std::cerr << "Vulkan wrapper initialized" << std::endl;
 	}
 }
