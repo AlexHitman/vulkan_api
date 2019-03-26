@@ -2,5 +2,5 @@
 
 int main(int, char**)
 {
-	wrappervk::Init();
+	wrappervk::Init({wrappervk::vkExtention::ExtDebugReport});
 }

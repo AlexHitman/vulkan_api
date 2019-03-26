@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 namespace wrappervk {
 	enum class vkExtention
 	{
@@ -11,5 +13,5 @@ namespace wrappervk {
 		Unknown
 	};
 
-	void Init();
+	void Init(std::vector<vkExtention> const & extensions);
 }
