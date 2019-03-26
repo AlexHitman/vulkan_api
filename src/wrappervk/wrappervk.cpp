@@ -9,15 +9,15 @@
 namespace {
 	using namespace wrappervk;
 
-	std::vector<std::pair<vkExtention, std::string>> extensionMap = {
-		{vkExtention::ExtDebugReport,    "VK_EXT_debug_report"},
-		{vkExtention::KhrSurface,        "VK_KHR_surface"},
-		{vkExtention::KhrXcbSurface,     "VK_KHR_xcb_surface"},
-		{vkExtention::KhrXlibSurface,    "VK_KHR_xlib_surface"},
-		{vkExtention::KhrWaylandSurface, "VK_KHR_wayland_surface"}
+	std::vector<std::pair<vkExtension, std::string>> extensionMap = {
+		{vkExtension::ExtDebugReport,    "VK_EXT_debug_report"},
+		{vkExtension::KhrSurface,        "VK_KHR_surface"},
+		{vkExtension::KhrXcbSurface,     "VK_KHR_xcb_surface"},
+		{vkExtension::KhrXlibSurface,    "VK_KHR_xlib_surface"},
+		{vkExtension::KhrWaylandSurface, "VK_KHR_wayland_surface"}
 	};
 
-	__attribute__((unused)) vkExtention NameToExtension(std::string const & name)
+	__attribute__((unused)) vkExtension NameToExtension(std::string const & name)
 	{
 		auto iter = std::find_if(extensionMap.cbegin(), extensionMap.cend(), [&name](auto const & item){
 			return item.second == name;
@@ -27,7 +27,7 @@ namespace {
 		return iter->first;
 	}
 
-	std::string const & ExtensionToName(vkExtention ext)
+	std::string const & ExtensionToName(vkExtension ext)
 	{
 		auto iter = std::find_if(extensionMap.cbegin(), extensionMap.cend(), [&ext](auto const & item){
 			return item.first == ext;
@@ -56,7 +56,7 @@ namespace {
 }
 
 namespace wrappervk {
-	void Init(std::vector<vkExtention> const & extensions)
+	void Init(std::vector<vkExtension> const & extensions)
 	{
 		const std::vector<VkExtensionProperties> availableExtensions = GetAvailableExtensions();
 

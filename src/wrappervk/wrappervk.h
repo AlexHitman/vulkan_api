@@ -3,7 +3,7 @@
 #include <vector>
 
 namespace wrappervk {
-	enum class vkExtention
+	enum class vkExtension
 	{
 		ExtDebugReport,
 		KhrSurface,
@@ -13,5 +13,5 @@ namespace wrappervk {
 		Unknown
 	};
 
-	void Init(std::vector<vkExtention> const & extensions);
+	void Init(std::vector<vkExtension> const & extensions);
 }
